@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+    <title>Users CR</title>
+</head>
+<body>
+    <div class="top">
+        
+        {#{%if something == this other thing%}#}
+        <h1> Edit User {{users.id}}</h1>
+        {#{%endif%}#}
+        
+        <a href="/users/displayall">Home</a>
+    </div>
+        
+    <form class='form' action='/users/update_user/{{users.id}}' method="post">
+        {# add hidden input for id otherwise yiou will return an error due to missing id#}
+        
+        {#{%if something == this other thing%}#}
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name" value="{{users.first_name}}" >
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name" value="{{users.last_name}}">
+        <label for="email" >Email:</label>
+        <input type="text" name="email" value="{{users.email}}">
+        <input action='/users/show/<int:id>' method="post" type="submit" value="Update" id="update">
+        <a class="show" href="/users/show/{{users.id}}">Show User</a>
+        {#{%endif%}#}
+        
+    </form>
+</body>
+</html>

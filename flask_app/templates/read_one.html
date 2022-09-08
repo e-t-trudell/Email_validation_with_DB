@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+    <title>Users CR</title>
+</head>
+<body>
+    {# adds user id from just created user to page header #}
+    <div class="topnav">
+        {# for loop for one_user in users doesnt work here it shows all users, unless, you do a fancy if statement?#}
+        
+        {#{%if something == this other thing%}#}
+        <h1>User {{users.id}}</h1>
+        {#{%endif%}#}
+        
+        <a class="home" href="/users/displayall">Home</a>
+    </div>
+    <table class="table" class="usertable">
+        <tr>
+            {# for loop for one_user in one_user doesnt work here it shows all one_user #}
+            
+            {#{%if something == this other thing%}#}
+            {# adds one_user one at a time with matching data sets below as table data  #}
+            <td>Full Name: {{users.first_name}} {{users.last_name}}</td>
+            <td>Email: {{users.email}}</td>
+            <td>Created On: {{users.created_at}}</td>
+            {# strftime #}
+            <td>Last Updated On: {{users.updated_at}}</td>
+        </tr>
+        {#{%endif%}#}
+            
+    </table>
+    <div class='bottomnav'>
+        <a class="edit" href="/users/edit/{{users.id}}">Edit</a>
+        <a class="delete" href="/users/destroy/{{users.id}}">Delete</a>
+    </div>
+</body>
+</html>

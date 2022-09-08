@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+    <title>Users CR</title>
+</head>
+<body>
+    <h1>All Users</h1>
+    <table class="table" class="usertable">
+        <tr>
+            <td>ID</td>
+            <td>Full Name</td>
+            <td>Email</td>
+            <td>Created At</td>
+            <td id='getbigger'>Actions</td>
+        </tr>
+        {# loops through variable position of all friends in friends list  #}
+        {% for one_user in users %}
+        <tr>
+            {# adds friends one at a time with matching data sets below as table data  #}
+            <td>{{one_user.id}}</td>
+            <td>{{one_user.first_name}} {{one_user.last_name}}</td>
+            <td>{{one_user.email}}</td>
+            <td>{{one_user.created_at}}</td>
+            {# add {{user.id}} #}
+            <td><a href="/users/show/{{one_user.id}}">Show</a></td>
+            <td><a href="/users/edit/{{one_user.id}}">Edit</a></td>
+            {# Zack suggests using a form here:
+                <form action="/delete/{{one_user.id}}" method="psot">
+                    <input type="submit" value="Delete {{one_user.id}}"
+                </form> 
+                above for real world applicaiton of using a button rather than a route to delete#}
+            <td><a href="/users/destroy/{{one_user.id}}">Delete</a></td>
+        </tr>
+        {% endfor %}
+        
+    </table>
+    <a class="newuser" href="/users">Add a New User</a>
+</body>
+</html>

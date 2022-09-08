@@ -1,0 +1,43 @@
+*{
+    padding: 10px;
+    /* border-style: border-box; */
+}
+.top{ 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 800px;
+    border: 2px solid green;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+}
+input {
+    border: 2px solid blue;
+    border-radius: 5px;
+    box-shadow: 5px 5px gold;
+}
+#create{
+    margin-top: 10px;
+}
+table, tr, td, th{
+    border: 2px solid purple;
+    border-collapse: collapse;
+}
+.newuser{
+    margin-top: 10px;
+    border: 2px solid purple;
+    border-radius: 5px;
+    box-shadow: 5px 5px peachpuff;
+}
+.topnav{
+    display: flex;
+    align-items: flex-start;
+}
+.bottomnav{
+    display: flex;
+    text-align: left;
+}

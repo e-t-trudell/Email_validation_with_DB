@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+    <title>Users CR</title>
+</head>
+<body>
+    <div class="top">
+        <h1>Add a New User</h1>
+        <a href="/users/displayall">Home</a>
+    </div>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flashes"> 
+            {% for message in messages %}
+                <li>{{message}}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <form class='form' action='/create_user' method="post">
+        <label for="id"></label>
+        <input type="hidden" name="id" value="{{users.id}}">
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name" placeholder="Enter first name here" >
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name" placeholder="Enter last name here">
+        <label for="email" >Email:</label>
+        <input type="text" name="email" placeholder="Enter email here">
+        <input action='/users/show/<int:id>' method="post" type="submit" value="Create" id="create">
+        {# action='/create_user' method="post" #}
+    </form>
+    
+</body>
+</html>
